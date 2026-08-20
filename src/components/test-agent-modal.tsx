@@ -28,7 +28,7 @@ export function TestAgentModal({ children }: { children: React.ReactNode }) {
 
   const send = () => {
     if (!input.trim()) return;
-    const reply = canned[turns.filter((t) => t.from === "ai").length % canned.length];
+    const reply = canned[turns.filter((t) => t.from === "ai").length % canned.length] ?? canned[0]!;
     setTurns((t) => [...t, { from: "you", text: input.trim() }, { from: "ai", text: reply }]);
     setInput("");
   };
